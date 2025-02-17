@@ -34,17 +34,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
 
         if (moveInput != Vector2.zero)
         {
+            moveInput = moveInput.normalized; // Giữ nguyên hướng nhưng đảm bảo tốc độ không tăng lên
+
             FaceMovementDirection();
-            anim.SetBool("isWalking", true); 
+            anim.SetBool("isWalking", true);
         }
         else
         {
-            anim.SetBool("isWalking", false); 
+            anim.SetBool("isWalking", false);
         }
 
         Shooting();
@@ -52,8 +54,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+        Vector2 targetPosition = rb.position + moveInput * moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(Vector2.Lerp(rb.position, targetPosition, 0.1f)); 
     }
+
 
     private void FaceMovementDirection()
     {

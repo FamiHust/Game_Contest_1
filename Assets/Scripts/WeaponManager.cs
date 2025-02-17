@@ -37,26 +37,21 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (currentWeaponIndex < totalWeapons - 1)
-            {
-                guns[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex++;
-                guns[currentWeaponIndex].SetActive(true);
-                currentGun = guns[currentWeaponIndex];
-            }
+            guns[currentWeaponIndex].SetActive(false);
+            currentWeaponIndex = (currentWeaponIndex + 1) % totalWeapons; // Chuyển về đầu khi vượt quá
+            guns[currentWeaponIndex].SetActive(true);
+            currentGun = guns[currentWeaponIndex];
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (currentWeaponIndex > 0)
-            {
-                guns[currentWeaponIndex].SetActive(false);
-                currentWeaponIndex--;
-                guns[currentWeaponIndex].SetActive(true);
-                currentGun = guns[currentWeaponIndex];
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     guns[currentWeaponIndex].SetActive(false);
+        //     currentWeaponIndex = (currentWeaponIndex - 1 + totalWeapons) % totalWeapons; // Chuyển về cuối khi lùi quá
+        //     guns[currentWeaponIndex].SetActive(true);
+        //     currentGun = guns[currentWeaponIndex];
+        // }
     }
+
 
     public void AddWeapon(GameObject weaponPrefab)
     {
