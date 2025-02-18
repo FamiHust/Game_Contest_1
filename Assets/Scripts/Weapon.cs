@@ -65,6 +65,7 @@ public class Weapon : MonoBehaviour
     {
         anim.SetTrigger("isShooting");
         anim.transform.rotation = transform.rotation;
+        SoundManager.PlaySound(SoundType.FireBullet);
 
         foreach (Transform fire in firePos)
         {

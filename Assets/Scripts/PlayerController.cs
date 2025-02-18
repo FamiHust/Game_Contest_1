@@ -1,21 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     private Animator anim;
 
-    public float moveSpeed;
-    [SerializeField] private float rotationSpeed = 5f;
-    private bool isWalking = false;
-    private bool isAttacking = false;
-
+    public float moveSpeed = 5f;
+    [SerializeField] private float rotationSpeed = 10f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
+    private Vector2 velocity = Vector2.zero;
+    private float smoothTime = 0.1f; // Điều chỉnh thời gian làm mượt
 
     private void Awake()
     {
@@ -27,51 +22,50 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        moveInput = new Vector2(horizontal, vertical).normalized;
 
         if (moveInput != Vector2.zero)
         {
-            moveInput = moveInput.normalized; // Giữ nguyên hướng nhưng đảm bảo tốc độ không tăng lên
-
-            FaceMovementDirection();
             anim.SetBool("isWalking", true);
+            FaceMovementDirection();
         }
         else
         {
             anim.SetBool("isWalking", false);
         }
-
-        Shooting();
     }
 
     private void FixedUpdate()
     {
-        Vector2 targetPosition = rb.position + moveInput * moveSpeed * Time.fixedDeltaTime;
-        rb.MovePosition(Vector2.Lerp(rb.position, targetPosition, 0.1f)); 
-    }
-
-
-    private void FaceMovementDirection()
-    {
-        if (moveInput != Vector2.zero) 
+        if (moveInput != Vector2.zero)
         {
-            float angle = Mathf.Atan2(-moveInput.x, moveInput.y) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle)); 
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            Vector2 targetVelocity = moveInput * moveSpeed;
+            rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 
-    private void Shooting()
+    private void FaceMovementDirection()
     {
-        
+        if (moveInput != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(-moveInput.x, moveInput.y) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
     }
 }

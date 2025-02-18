@@ -42,28 +42,18 @@ public class WeaponManager : MonoBehaviour
             guns[currentWeaponIndex].SetActive(true);
             currentGun = guns[currentWeaponIndex];
         }
-
-        // if (Input.GetKeyDown(KeyCode.Q))
-        // {
-        //     guns[currentWeaponIndex].SetActive(false);
-        //     currentWeaponIndex = (currentWeaponIndex - 1 + totalWeapons) % totalWeapons; // Chuyển về cuối khi lùi quá
-        //     guns[currentWeaponIndex].SetActive(true);
-        //     currentGun = guns[currentWeaponIndex];
-        // }
     }
 
 
     public void AddWeapon(GameObject weaponPrefab)
     {
-        // Tạo bản sao của prefab trong game
         GameObject newWeapon = Instantiate(weaponPrefab, weaponHolder.transform);
 
-        // Thêm vào danh sách vũ khí
         List<GameObject> weaponList = new List<GameObject>(guns);
         weaponList.Add(newWeapon);
         guns = weaponList.ToArray();
 
-        newWeapon.SetActive(false); // Ẩn súng mới nhặt
+        newWeapon.SetActive(false); 
         totalWeapons++;
     }
 
