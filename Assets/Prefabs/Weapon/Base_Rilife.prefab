@@ -134,6 +134,7 @@ MonoBehaviour:
   bullet: {fileID: 8370521195123539258, guid: 95ca538d325247b45aec7f2523702a06, type: 3}
   firePos:
   - {fileID: 2448546951367522571}
+  weaponData: {fileID: 11400000, guid: 59bd52a3c03444d448e632b5c0d73436, type: 2}
   TimeBtwFire: 0.3
   bulletForce: 10
 --- !u!95 &8902087314482384512

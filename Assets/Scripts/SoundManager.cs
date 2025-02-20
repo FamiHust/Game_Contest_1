@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public enum SoundType
 {
-    FireBullet
+    FireBullet,
+    PickUp
 }
 
 [RequireComponent(typeof(AudioSource))]
