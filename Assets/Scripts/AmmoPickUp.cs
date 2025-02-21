@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AmmoPickUp : MonoBehaviour
 {
-    public int ammoAmount = 10; // Số lượng đạn được nạp
+    public int ammoAmount = 10; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,7 +17,7 @@ public class AmmoPickUp : MonoBehaviour
                     {
                         weaponScript.weaponData.ReloadAmmo(ammoAmount);
                         FindObjectOfType<WeaponUIManager>().UpdateAmmoUI(weaponScript.weaponData);
-                        SoundManager.PlaySound(SoundType.PickUp);
+                        SoundManager.PlaySound(SoundType.WeaponPickUp);
                         Destroy(gameObject); 
                     } 
             }

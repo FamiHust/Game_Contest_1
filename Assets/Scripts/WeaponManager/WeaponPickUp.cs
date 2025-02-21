@@ -13,7 +13,7 @@ public class WeaponPickUp : MonoBehaviour
             WeaponManager weaponManager = other.GetComponent<WeaponManager>();
             if (weaponManager != null)
             {
-                SoundManager.PlaySound(SoundType.PickUp);
+                SoundManager.PlaySound(SoundType.WeaponPickUp);
                 weaponManager.AddWeapon(weaponPrefab);
                 Destroy(gameObject); 
             }

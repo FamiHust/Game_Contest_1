@@ -9,6 +9,11 @@ public class WeaponType : ScriptableObject
     public int maxAmmo;
     public int currentAmmo;
 
+    private void Awake() 
+    {
+        currentAmmo = maxAmmo;    
+    }
+
     public void DecreaseAmmo()
     {
         if (currentAmmo > 0)

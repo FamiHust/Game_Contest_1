@@ -41,7 +41,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SoundManager.PlaySound(SoundType.PickUp);
+            SoundManager.PlaySound(SoundType.WeaponPickUp);
             guns[currentWeaponIndex].SetActive(false);
             currentWeaponIndex = (currentWeaponIndex + 1) % totalWeapons;
             guns[currentWeaponIndex].SetActive(true);
