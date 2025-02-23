@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 3845398219866990169}
   - component: {fileID: 1702915916464088502}
   - component: {fileID: 5419810846430857247}
-  - component: {fileID: -4484267785944229558}
-  - component: {fileID: -251527317881515813}
+  - component: {fileID: -96307140955808803}
   m_Layer: 6
   m_Name: SniperBullet
   m_TagString: Untagged
@@ -31,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.849, y: -3.626, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2.1538944, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -160,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-4484267785944229558
+--- !u!114 &-96307140955808803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,19 +168,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785648380333587721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab400b7934a6824cadac7b5ca5a0992, type: 3}
+  m_Script: {fileID: 11500000, guid: f69c3eb9b07dd204091e7f6d84972acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTime: 2
---- !u!114 &-251527317881515813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4785648380333587721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b81477f197c0b64cbb360a7c2849776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 10
+  damage: 10
+  lifetime: 2
