@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524791a547ff36a4799fff5cc39f80cc, type: 3}
   m_Name: ACS
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotationSpeed: 5
+  moveSpeed: 0.5
+  rotationSpeed: 1
   fireRate: 1
-  detectionRange: 5
-  attackRange: 3
+  detectionRange: 10
+  attackRange: 4
   health: 100
-  bulletPrefab: {fileID: 6016217809769143057, guid: 2cc895c589598d945840732745974aa8, type: 3}
+  bulletPrefab: {fileID: 4705385956406721282, guid: 84cee525d7259ff4c87d55da540b2dc5, type: 3}

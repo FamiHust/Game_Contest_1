@@ -1,58 +1,105 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    public float speed = 3f; 
-    public float detectionRange = 5f; 
-    public float rotationSpeed = 2f; 
-    public float movementDelay = 0.5f; 
-    private Transform player;
-    private bool isPlayerInRange = false;
-    private float movementCooldown = 0f;
+    [SerializeField] private float smoothTime = 0.2f;
+    private float lastFireTime = 0f;
 
-    void Start()
+    public TankType tankType; 
+    public Transform firePoint; 
+    private Transform player;
+    private Rigidbody2D rb;
+    private Vector2 velocity = Vector2.zero;
+    private Animator anim;
+
+    private bool isWalking = false;
+
+    private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (tankType == null)
+        {
+            return;
+        }
+
+        player = PlayerController.Instance?.transform;
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        float distance = Vector2.Distance(transform.position, player.position);
-        isPlayerInRange = distance <= detectionRange;
+        if (player == null || tankType == null) return;
 
-        if (isPlayerInRange)
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= tankType.attackRange)
         {
-            RotateTowardsPlayer();
-                
-            if (movementCooldown <= 0f)
+            Attack();
+            EnemyStop();
+        }
+        else if (distanceToPlayer <= tankType.detectionRange)
+        {
+            MoveTowardsPlayer();
+        }
+        else
+        {
+            EnemyStop();
+        }
+    }
+
+
+
+    private void EnemyStop()
+    {
+        rb.velocity = Vector2.zero;
+        if (isWalking)
+        {
+            isWalking = false;
+            anim.SetBool("isWalking", false);
+        }
+    }
+
+    private void MoveTowardsPlayer()
+    {
+        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 targetVelocity = direction * tankType.moveSpeed;
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);
+        RotateTowardsPlayer(direction);
+
+        if (!isWalking)
+        {
+            isWalking = true;
+            anim.SetBool("isWalking", true);
+        }
+    }
+
+    private void Attack()
+    {
+        if (Time.time - lastFireTime >= 1f / tankType.fireRate)
+        {
+            lastFireTime = Time.time;
+            if (tankType.bulletPrefab != null && firePoint != null)
             {
-                MoveTowardsPlayer();
-                movementCooldown = movementDelay;
+                Instantiate(tankType.bulletPrefab, firePoint.position, firePoint.rotation);
             }
         }
-        
-        if (movementCooldown > 0f)
+    }
+
+    private void RotateTowardsPlayer(Vector2 direction)
+    {
+        float angle = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * tankType.rotationSpeed);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (tankType != null)
         {
-            movementCooldown -= Time.deltaTime;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, tankType.detectionRange);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, tankType.attackRange);
         }
-    }
-
-    void MoveTowardsPlayer()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-    }
-
-    void RotateTowardsPlayer()
-    {
-        Vector2 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

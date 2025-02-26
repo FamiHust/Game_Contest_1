@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewTankStats", menuName = "Tank/TankStats")]
-public class TankStats : ScriptableObject
+[CreateAssetMenu(fileName = "NewTankType", menuName = "Tank/TankType")]
+public class TankType : ScriptableObject
 {
     public float moveSpeed;
     public float rotationSpeed;
