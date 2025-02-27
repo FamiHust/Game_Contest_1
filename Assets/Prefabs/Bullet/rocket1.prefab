@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3166090891636161395}
   - component: {fileID: 2557171557262879943}
   - component: {fileID: 9079306190264414712}
-  - component: {fileID: 2507994935061938540}
+  - component: {fileID: 7664898486857729601}
+  - component: {fileID: 4406043014482292183}
   m_Layer: 6
   m_Name: rocket1
   m_TagString: Untagged
@@ -159,7 +160,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2507994935061938540
+--- !u!114 &7664898486857729601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,9 +169,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4705385956406721282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69c3eb9b07dd204091e7f6d84972acb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b81477f197c0b64cbb360a7c2849776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 10
-  lifetime: 3
+  damage: 50
+--- !u!114 &4406043014482292183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705385956406721282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab400b7934a6824cadac7b5ca5a0992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeTime: 2
