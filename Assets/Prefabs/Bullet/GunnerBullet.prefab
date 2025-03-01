@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4756721264306616007}
   - component: {fileID: 5112830928033756606}
   - component: {fileID: -4478999791252417422}
+  - component: {fileID: 4205632238038437037}
   m_Layer: 6
   m_Name: GunnerBullet
   m_TagString: Bullet
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.03125, y: 0.09375}
+    oldSize: {x: 0.09375, y: 0.03125}
     newSize: {x: 0.01, y: 0.03}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -185,3 +186,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b81477f197c0b64cbb360a7c2849776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+--- !u!95 &4205632238038437037
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370521195123539258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 180dbcd986a725a469949fd2b19b49de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

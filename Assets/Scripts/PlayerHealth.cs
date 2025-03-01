@@ -1,17 +1,21 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth Instance { get; private set; }
 
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] private int maxArmor = 50;
-    private int currentHealth;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int maxArmor;
+    [HideInInspector] public int currentHealth;
     private int currentArmor;
 
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI armorText;
+
+    private Animator anim;
+    private Color originalColor;
 
     void Awake()
     {
@@ -23,6 +27,8 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -30,14 +36,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         currentArmor = maxArmor;
         UpdateUI();
-    }
-
-    private void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     TakeDamage(10);
-        // }
     }
 
     public void TakeDamage(int damage)
@@ -94,7 +92,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("isDie");
+            PlayerController.Instance.enabled = false;
         }
     }
 

@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public float speed = 10f;
-    public int damage = 10;
-    public float lifetime = 3f;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private int damage = 10;
+    [SerializeField] private float lifetime = 3f;
     private Vector2 direction;
+    private Animator anim;
+
+    private void Awake() 
+    {
+        anim = GetComponent<Animator>();    
+    }
 
     void Start()
     {
@@ -36,6 +42,7 @@ public class EnemyBullet : MonoBehaviour
             {
                 playerHealth.TakeDamage(damage);
             }
+            SoundManager.PlaySound(SoundType.Gunshot);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Obstacle"))

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
     public GameObject bullet;
     public Transform[] firePos;
     private Animator anim;
@@ -43,7 +42,7 @@ public class Weapon : MonoBehaviour
 
             if (!isShooting) 
             {
-                PlayerController.Instance.moveSpeed *= 0.5f;
+                PlayerController.Instance.moveSpeed *= 0.8f;
                 isShooting = true;
             }
         }

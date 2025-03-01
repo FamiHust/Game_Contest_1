@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public float speed = 3f; 
     public float detectionRange = 5f; 
     public float rotationSpeed = 2f; 
-    public float movementDelay = 0.5f; 
     private Transform player;
     private bool isPlayerInRange = false;
-    private float movementCooldown = 0f;
 
     void Start()
     {
@@ -33,24 +30,7 @@ public class EnemyFollow : MonoBehaviour
         if (isPlayerInRange)
         {
             RotateTowardsPlayer();
-                
-            if (movementCooldown <= 0f)
-            {
-                MoveTowardsPlayer();
-                movementCooldown = movementDelay;
-            }
         }
-        
-        if (movementCooldown > 0f)
-        {
-            movementCooldown -= Time.deltaTime;
-        }
-    }
-
-    void MoveTowardsPlayer()
-    {
-        if (player == null) return;
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 
     void RotateTowardsPlayer()

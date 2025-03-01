@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 velocity = Vector2.zero;
-    [SerializeField] private float smoothTime = 0.1f; // Điều chỉnh thời gian làm mượt
+    [SerializeField] private float smoothTime = 0.1f; 
 
     private void Awake()
     {
@@ -44,19 +44,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
     }
-
-    // private void FixedUpdate()
-    // {
-    //     if (moveInput != Vector2.zero)
-    //     {
-    //         Vector2 targetVelocity = moveInput * moveSpeed;
-    //         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);
-    //     }
-    //     else
-    //     {
-    //         rb.velocity = Vector2.zero;
-    //     }
-    // }
 
     private void FixedUpdate()
     {

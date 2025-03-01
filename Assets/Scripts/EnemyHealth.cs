@@ -1,10 +1,14 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
+    private EnemyController enemyController;
     public TankType tankType; 
     private int currentHealth;
     private Animator anim;
+    private Color originalColor;
+    public GameObject Gun;
 
     private void Awake() 
     {
@@ -13,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        enemyController = GetComponent<EnemyController>();
         if (tankType == null)
         {
             return;
@@ -25,7 +30,6 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0) return;
 
         currentHealth -= damage;
-
         if (currentHealth <= 0)
         {
             Die();
@@ -34,8 +38,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        anim.SetTrigger("isDie");
-        Destroy(gameObject, 1f);
+        if (enemyController != null)
+        {
+            enemyController.Die();
+            Gun.SetActive(true);
+        }
     }
 }
-
