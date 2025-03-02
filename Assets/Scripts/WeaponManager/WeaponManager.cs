@@ -63,6 +63,19 @@ public class WeaponManager : MonoBehaviour
 
     public void AddWeapon(GameObject weaponPrefab)
     {
+        Weapon weaponScript = weaponPrefab.GetComponent<Weapon>();
+        if (weaponScript == null) return;
+
+        string newWeaponName = weaponScript.weaponData.weaponName;
+        foreach (GameObject gun in guns)
+        {
+            Weapon existingWeapon = gun.GetComponent<Weapon>();
+            if (existingWeapon != null && existingWeapon.weaponData.weaponName == newWeaponName)
+            {
+                return; 
+            }
+        }
+
         GameObject newWeapon = Instantiate(weaponPrefab, weaponHolder.transform);
 
         List<GameObject> weaponList = new List<GameObject>(guns);

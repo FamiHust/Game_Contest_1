@@ -6,7 +6,8 @@ public enum SoundType
     FireBullet,
     WeaponPickUp,
     HealthPickUp,
-    Gunshot
+    Gunshot,
+    Obstacle
 }
 
 [RequireComponent(typeof(AudioSource))]

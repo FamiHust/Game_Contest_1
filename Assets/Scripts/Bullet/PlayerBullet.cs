@@ -17,6 +17,7 @@ public class PlayerBullet : MonoBehaviour
         }
         else if (other.CompareTag("Obstacle"))
         {
+            SoundManager.PlaySound(SoundType.Obstacle);
             Destroy(gameObject);
         }
     }
