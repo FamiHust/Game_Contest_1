@@ -15,4 +15,4 @@ MonoBehaviour:
   weaponName: Rilife
   weaponIcon: {fileID: 21300000, guid: 1d22235d3fb4b1941a58bd1b41229d2a, type: 3}
   maxAmmo: 50
-  currentAmmo: 31
+  currentAmmo: 30

@@ -15,4 +15,4 @@ MonoBehaviour:
   weaponName: Machine_Gun
   weaponIcon: {fileID: 21300000, guid: 494dd4caaa69e5d45b51891d9c7cda4f, type: 3}
   maxAmmo: 50
-  currentAmmo: 42
+  currentAmmo: 7

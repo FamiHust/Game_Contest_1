@@ -405,6 +405,7 @@ MonoBehaviour:
   smoothTime: 0.2
   tankType: {fileID: 11400000, guid: 5e460029451392744911ab50aeda4c75, type: 2}
   firePoint: {fileID: 8075099506211023765}
+  isPlane: 1
 --- !u!114 &-6704500667732026737
 MonoBehaviour:
   m_ObjectHideFlags: 0

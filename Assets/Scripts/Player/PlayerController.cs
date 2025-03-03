@@ -3,14 +3,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
-    private Animator anim;
 
     public float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float smoothTime = 0.1f; 
+
+    private Animator anim;
     public Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 velocity = Vector2.zero;
-    [SerializeField] private float smoothTime = 0.1f; 
+
+    public bool isPlane = true;
 
     private void Awake()
     {
@@ -34,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
         moveInput = new Vector2(horizontal, vertical).normalized;
 
-        if (moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero && !isPlane)
         {
             anim.SetBool("isWalking", true);
             FaceMovementDirection();
