@@ -15,7 +15,6 @@ public class EnemyController : MonoBehaviour
     private bool isWalking;
     private bool isAttacking;
     private bool isDead = false;
-    public bool isPlane = true;
 
     private void Start()
     {
@@ -65,10 +64,8 @@ public class EnemyController : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.velocity = Vector2.SmoothDamp(rb.velocity, direction * tankType.moveSpeed, ref velocity, smoothTime);
-        if (!isPlane)
-        {
-            RotateTowards(direction);
-        }
+
+        RotateTowards(direction);
 
         if (!isWalking)
         {

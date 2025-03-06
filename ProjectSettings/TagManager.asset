@@ -17,8 +17,8 @@ TagManager:
   - UI
   - Player
   - Background
-  - 
-  - 
+  - Radar
+  - Enemy
   - 
   - 
   - 
@@ -51,9 +51,15 @@ TagManager:
   - name: Player
     uniqueID: 1112826457
     locked: 0
+  - name: Enemy
+    uniqueID: 1370430123
+    locked: 0
   - name: Objects
     uniqueID: 1770878133
     locked: 0
   - name: UI
     uniqueID: 1584045609
+    locked: 0
+  - name: Radar
+    uniqueID: 557276409
     locked: 0

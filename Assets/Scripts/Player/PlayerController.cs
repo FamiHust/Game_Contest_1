@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 velocity = Vector2.zero;
 
-    public bool isPlane = true;
-
     private void Awake()
     {
         if (Instance == null)
@@ -37,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         moveInput = new Vector2(horizontal, vertical).normalized;
 
-        if (moveInput != Vector2.zero && !isPlane)
+        if (moveInput != Vector2.zero)
         {
             anim.SetBool("isWalking", true);
             FaceMovementDirection();
