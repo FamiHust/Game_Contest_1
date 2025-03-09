@@ -48,11 +48,11 @@ TagManager:
   - name: Background
     uniqueID: 822173875
     locked: 0
-  - name: Player
-    uniqueID: 1112826457
-    locked: 0
   - name: Enemy
     uniqueID: 1370430123
+    locked: 0
+  - name: Player
+    uniqueID: 1112826457
     locked: 0
   - name: Objects
     uniqueID: 1770878133

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static PlayerHealth Instance { get; private set; }
+    public static PlayerHealth Instance { get; set; }
 
     [SerializeField] private int maxHealth;
     [SerializeField] private int maxArmor;
@@ -92,9 +92,16 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            anim.SetTrigger("isDie");
-            PlayerController.Instance.enabled = false;
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        anim.SetTrigger("isDie");
+        PlayerController.Instance.enabled = false;
+        GameManager.instance.GameOver();
+        SoundManager.PlaySound(SoundType.GameOver);
     }
 
     public bool IsFullHealth()

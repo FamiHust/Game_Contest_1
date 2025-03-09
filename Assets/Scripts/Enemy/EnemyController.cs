@@ -18,38 +18,77 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        player = PlayerController.Instance?.transform;
+        player = PlayerController.Instance.transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
+    // private void FixedUpdate()
+    // {
+    //     float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+    //     if (player == null || PlayerHealth.Instance == null || PlayerHealth.Instance.currentHealth <= 0) 
+    //     {
+    //         StopMovement();
+    //         UnAttack();
+    //         return;
+    //     }
+
+    //     if (distanceToPlayer <= tankType.attackRange)
+    //     {
+    //         Attack();
+    //         StopMovement();
+    //     }
+    //     else if (distanceToPlayer <= tankType.detectionRange)
+    //     {
+    //         MoveTowardsPlayer();
+    //         UnAttack();
+    //     }
+    //     else
+    //     {
+    //         StopMovement();
+    //         UnAttack();
+    //     }
+    // }
+
     private void FixedUpdate()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (player == null || PlayerHealth.Instance == null || PlayerHealth.Instance.currentHealth <= 0) 
+        if (player == null || PlayerHealth.Instance == null || PlayerHealth.Instance.currentHealth <= 0 || ReferenceEquals(player, null))
         {
             StopMovement();
             UnAttack();
+            this.enabled = false; 
             return;
         }
 
-        if (distanceToPlayer <= tankType.attackRange)
+        try
         {
-            Attack();
-            StopMovement();
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+            if (distanceToPlayer <= tankType.attackRange)
+            {
+                Attack();
+                StopMovement();
+            }
+            else if (distanceToPlayer <= tankType.detectionRange)
+            {
+                MoveTowardsPlayer();
+                UnAttack();
+            }
+            else
+            {
+                StopMovement();
+                UnAttack();
+            }
         }
-        else if (distanceToPlayer <= tankType.detectionRange)
-        {
-            MoveTowardsPlayer();
-            UnAttack();
-        }
-        else
+        catch (MissingReferenceException)
         {
             StopMovement();
             UnAttack();
+            this.enabled = false;
         }
     }
+
 
     public void StopMovement()
     {
@@ -122,7 +161,6 @@ public class EnemyController : MonoBehaviour
 
         this.enabled = false;
     }
-
 
     private void OnDrawGizmos()
     {
