@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
-// using CodeMonkey;
 
 public class Radar : MonoBehaviour {
 
@@ -41,19 +40,14 @@ public class Radar : MonoBehaviour {
                     {
                         radarPing.SetColor(new Color(1, 0, 0));
                     }
+                    if (raycastHit2D.collider.gameObject.GetComponent<FinishLine>() != null) 
+                    {
+                        radarPing.SetColor(new Color(0, 1, 0));
+                    }
                     radarPing.SetDisappearTimer(360f / rotationSpeed * 1f);
                 }
             }
         }
-        
-        // if (Input.GetKeyDown(KeyCode.T)) {
-        //     rotationSpeed += 20;
-        //     Debug.Log("rotationSpeed: " + rotationSpeed);
-        // }
-        // if (Input.GetKeyDown(KeyCode.R)) {
-        //     rotationSpeed -= 20;
-        //     Debug.Log("rotationSpeed: " + rotationSpeed);
-        // }
     }
 
 }

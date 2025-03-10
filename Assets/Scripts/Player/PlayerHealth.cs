@@ -13,7 +13,6 @@ public class PlayerHealth : MonoBehaviour
 
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI armorText;
-
     private Animator anim;
     private Color originalColor;
 

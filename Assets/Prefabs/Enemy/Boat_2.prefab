@@ -209,7 +209,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -251,8 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217c91921a759c34fb8fba2da98b397b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankType: {fileID: 11400000, guid: 7e12439e9b22a244a82e5266b63591d6, type: 2}
   Gun: {fileID: 582633648761033769}
+  tankType: {fileID: 11400000, guid: 7e12439e9b22a244a82e5266b63591d6, type: 2}
+  knockbackForce: 5
 --- !u!70 &3058528240689997198
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

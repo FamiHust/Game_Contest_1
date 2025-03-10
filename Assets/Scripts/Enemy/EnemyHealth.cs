@@ -10,10 +10,12 @@ public class EnemyHealth : MonoBehaviour
     private Color originalColor;
     public GameObject Gun;
     public TankType tankType; 
+    private KnockBack knockBack;
 
     private void Awake() 
     {
         anim = GetComponent<Animator>();
+        knockBack = GetComponent<KnockBack>();
     }
 
     private void Start()

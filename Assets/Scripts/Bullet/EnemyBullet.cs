@@ -42,7 +42,6 @@ public class EnemyBullet : MonoBehaviour
             {
                 playerHealth.TakeDamage(damage);
             }
-            // SoundManager.PlaySound(SoundType.Gunshot);
             gameObject.SetActive(false);
         }
         else if (other.CompareTag("Obstacle"))

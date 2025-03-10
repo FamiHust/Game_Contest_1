@@ -4,13 +4,13 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float smoothTime = 0.1f; 
 
     private Animator anim;
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    [HideInInspector] public Vector2 moveInput;
     private Vector2 velocity = Vector2.zero;
 
     private void Awake()
@@ -44,11 +44,29 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
+
+        SpeedModify();
     }
 
     private void FixedUpdate()
     {
         rb.velocity = moveInput * moveSpeed;
+    }
+
+    private void SpeedModify()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            moveSpeed += 0.1f;
+            if(moveSpeed >= 6f)
+            {
+                moveSpeed = 6f;
+            }
+        }
+        else
+        {
+            moveSpeed = 3f;
+        }
     }
 
     private void FaceMovementDirection()

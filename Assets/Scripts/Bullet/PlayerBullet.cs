@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public int damage = 10; 
+    private Vector2 hitDirection;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
