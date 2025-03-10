@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static PlayerHealth Instance { get; set; }
+    public static PlayerHealth Instance { get; set;}
 
     [SerializeField] private int maxHealth;
     [SerializeField] private int maxArmor;

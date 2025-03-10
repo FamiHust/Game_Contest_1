@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float smoothTime = 0.1f; 
 
     private Animator anim;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 velocity = Vector2.zero;
 
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + moveInput * moveSpeed * Time.deltaTime);
+        rb.velocity = moveInput * moveSpeed;
     }
 
     private void FaceMovementDirection()

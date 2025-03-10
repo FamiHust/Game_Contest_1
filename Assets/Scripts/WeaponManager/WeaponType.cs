@@ -5,9 +5,9 @@ using TMPro;
 public class WeaponType : ScriptableObject
 {
     public string weaponName;
-    public Sprite weaponIcon;
     public int maxAmmo;
     public int currentAmmo;
+    public Sprite weaponIcon;
 
     private void Awake() 
     {

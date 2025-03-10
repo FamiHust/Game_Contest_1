@@ -8,12 +8,12 @@ public class Timer : MonoBehaviour
     [SerializeField] private float remainingTime;
     public TextMeshProUGUI timerText;
 
-    // private bool isBlinking = false; // Biến kiểm tra trạng thái nhấp nháy
-    // private float blinkInterval = 0.5f; // Thời gian giữa các lần nhấp nháy
-    // private float blinkTimer = 0f; // Bộ đếm thời gian cho nhấp nháy
-    // private float scaleSpeed = 0.2f; // Tốc độ phóng to/thu nhỏ
-    // private float maxScale = 1.1f; // Kích thước tối đa
-    // private float minScale = 1.0f; // Kích thước tối thiểu
+    private bool isBlinking = false; 
+    private float blinkInterval = 0.5f; 
+    private float blinkTimer = 0f;
+    private float scaleSpeed = 0.2f; 
+    private float maxScale = 1.1f;
+    private float minScale = 1.0f;
 
     void Update()
     {
@@ -32,30 +32,31 @@ public class Timer : MonoBehaviour
         int seconds = Mathf.FloorToInt(remainingTime % 60);
         timerText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        // // Kiểm tra xem thời gian còn lại có dưới 10 giây không
-        // if (remainingTime <= 11f)
-        // {
-        //     isBlinking = true; // Bắt đầu nhấp nháy
-        //     ScaleText(); // Gọi phương thức để phóng to/thu nhỏ văn bản
-        // }
-
-        // // Nhấp nháy văn bản
-        // if (isBlinking)
-        // {
-        //     blinkTimer += Time.deltaTime;
-        //     if (blinkTimer >= blinkInterval)
-        //     {
-        //         // Đổi màu văn bản giữa đỏ và trong suốt
-        //         timerText.color = (timerText.color == Color.red) ? Color.white : Color.red;
-        //         blinkTimer = 0f; // Đặt lại bộ đếm thời gian
-        //     }
-        // }
+        BlinkText();
     }
 
-    // private void ScaleText()
-    // {
-    //     // Sử dụng Mathf.PingPong để tạo hiệu ứng phóng to/thu nhỏ mượt mà
-    //     float scale = Mathf.PingPong(Time.time * scaleSpeed, maxScale - minScale) + minScale;
-    //     timerText.transform.localScale = new Vector3(scale, scale, 1);
-    // }
+    private void BlinkText()
+    {
+        if (remainingTime <= 11f)
+        {
+            isBlinking = true; 
+            ScaleText(); 
+        }
+
+        if (isBlinking)
+        {
+            blinkTimer += Time.deltaTime;
+            if (blinkTimer >= blinkInterval)
+            {
+                timerText.color = (timerText.color == Color.red) ? Color.white : Color.red;
+                blinkTimer = 0f; 
+            }
+        }
+    }
+
+    private void ScaleText()
+    {
+        float scale = Mathf.PingPong(Time.time * scaleSpeed, maxScale - minScale) + minScale;
+        timerText.transform.localScale = new Vector3(scale, scale, 1);
+    }
 }

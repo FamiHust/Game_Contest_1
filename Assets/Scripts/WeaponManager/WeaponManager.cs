@@ -10,7 +10,6 @@ public class WeaponManager : MonoBehaviour
     public GameObject[] guns;
     public GameObject weaponHolder;
     public GameObject currentGun;
-
     private WeaponUIManager weaponUIManager;
 
     void Start()

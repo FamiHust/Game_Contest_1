@@ -3,12 +3,13 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private EnemyController enemyController;
-    public TankType tankType; 
     private int currentHealth;
+
+    private EnemyController enemyController;
     private Animator anim;
     private Color originalColor;
     public GameObject Gun;
+    public TankType tankType; 
 
     private void Awake() 
     {

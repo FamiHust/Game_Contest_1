@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject OverPanel;
-    public bool isGameOver = false;
+    public GameObject WinPanel;
 
     private void Awake()
     {
@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        isGameOver = true;
         StartCoroutine(GameOverCoroutine());
     }
 
@@ -39,6 +38,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GameWin()
+    {
+        StartCoroutine(GameWinCoroutine());
+    }
+
+    private IEnumerator GameWinCoroutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        WinPanel.SetActive(true);
+
+        if (PlayerHealth.Instance != null)
+        {
+            PlayerHealth.Instance = null;
+        }
+    }
+
+    public void LoadingScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
     
     public void QuitGame()
     {

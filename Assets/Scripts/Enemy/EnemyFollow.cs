@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public float detectionRange = 5f; 
-    public float rotationSpeed = 2f; 
-    private Transform player;
+    [SerializeField] private float detectionRange = 5f; 
+    [SerializeField] private float rotationSpeed = 2f; 
     private bool isPlayerInRange = false;
+    private Transform player;
 
     void Start()
     {

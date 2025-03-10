@@ -7,13 +7,12 @@ public class Weapon : MonoBehaviour
     public GameObject bullet;
     public Transform[] firePos;
     private Animator anim;
-
     public WeaponType weaponData;
-    public float TimeBtwFire = 0.2f;
-    public float bulletForce;
+
+    [SerializeField] private float TimeBtwFire = 0.2f;
+    [SerializeField] private float bulletForce;
     private float timeBtwFire;
     private float originalSpeed;
-    
     private bool isShooting = false;
 
     private void Awake() 

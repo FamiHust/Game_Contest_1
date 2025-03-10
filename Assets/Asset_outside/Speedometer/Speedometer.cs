@@ -1,61 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Speedometer : MonoBehaviour
 {
-    private const float MAX_SPEED_ANGLE = -20;
-    private const float ZERO_SPEED_ANGLE = 230;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float maxNeedleRotation = -220f; 
+    [SerializeField] private float minNeedleRotation = 40f; 
+    [SerializeField] private float needleSmoothTime = 0.1f;
+    private float currentSpeed = 0f;
+    private float speedVelocity = 0f;
 
-    private Transform needleTransform;
-    private Transform speedLabelTemplateTransform;
-
-    private float speedMax;
-    private float speed;
-
-    private void Awake()
-    {
-        needleTransform = transform.Find("needle");
-        speedLabelTemplateTransform = transform.Find("speedLabelTemplate");
-        speedLabelTemplateTransform.gameObject.SetActive(false);
-
-        speedMax = PlayerController.Instance != null ? PlayerController.Instance.moveSpeed : 5f;
-
-        CreateSpeedLabels();
-    }
+    public TextMeshProUGUI speedText; 
+    public Rigidbody2D playerRb;
+    public RectTransform needle; 
 
     private void Update()
     {
-        if (PlayerController.Instance != null)
+        if (playerRb != null)
         {
-            speed = PlayerController.Instance.rb.velocity.magnitude;
+            float targetSpeed = playerRb.velocity.magnitude; 
+            currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedVelocity, needleSmoothTime);
+            
+            speedText.text = (currentSpeed*10).ToString("F2"); 
+            
+            float needleRotation = Mathf.Lerp(minNeedleRotation, maxNeedleRotation, currentSpeed / maxSpeed);
+            needle.rotation = Quaternion.Euler(0, 0, needleRotation);
         }
-
-        needleTransform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
-    }
-
-    private void CreateSpeedLabels()
-    {
-        int labelAmount = 10;
-        float totalAngleSize = ZERO_SPEED_ANGLE - MAX_SPEED_ANGLE;
-
-        for (int i = 0; i <= labelAmount; i++)
-        {
-            Transform speedLabelTransform = Instantiate(speedLabelTemplateTransform, transform);
-            float labelSpeedNormalized = (float)i / labelAmount;
-            float speedLabelAngle = ZERO_SPEED_ANGLE - labelSpeedNormalized * totalAngleSize;
-            speedLabelTransform.eulerAngles = new Vector3(0, 0, speedLabelAngle);
-            speedLabelTransform.Find("speedText").GetComponent<Text>().text = Mathf.RoundToInt(labelSpeedNormalized * speedMax).ToString();
-            speedLabelTransform.Find("speedText").eulerAngles = Vector3.zero;
-            speedLabelTransform.gameObject.SetActive(true);
-        }
-
-        needleTransform.SetAsLastSibling();
-    }
-
-    private float GetSpeedRotation()
-    {
-        float totalAngleSize = ZERO_SPEED_ANGLE - MAX_SPEED_ANGLE;
-        float speedNormalized = speed / speedMax;
-        return ZERO_SPEED_ANGLE - speedNormalized * totalAngleSize;
     }
 }
