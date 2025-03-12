@@ -9,6 +9,8 @@ TagManager:
   - Weapon
   - Bullet
   - FinishLine
+  - LoadScene
+  - Minimap
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Background
   - Radar
   - Enemy
-  - 
+  - Minimap
   - 
   - 
   - 
@@ -57,6 +59,9 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 1770878133
+    locked: 0
+  - name: Minimap
+    uniqueID: 3578894093
     locked: 0
   - name: Radar
     uniqueID: 557276409
