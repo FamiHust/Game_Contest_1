@@ -253,7 +253,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gun: {fileID: 582633648761033769}
   tankType: {fileID: 11400000, guid: 7e12439e9b22a244a82e5266b63591d6, type: 2}
-  knockbackForce: 5
 --- !u!70 &3058528240689997198
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

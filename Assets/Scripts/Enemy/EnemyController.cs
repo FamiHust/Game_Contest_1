@@ -23,34 +23,6 @@ public class EnemyController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // private void FixedUpdate()
-    // {
-    //     float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-    //     if (player == null || PlayerHealth.Instance == null || PlayerHealth.Instance.currentHealth <= 0) 
-    //     {
-    //         StopMovement();
-    //         UnAttack();
-    //         return;
-    //     }
-
-    //     if (distanceToPlayer <= tankType.attackRange)
-    //     {
-    //         Attack();
-    //         StopMovement();
-    //     }
-    //     else if (distanceToPlayer <= tankType.detectionRange)
-    //     {
-    //         MoveTowardsPlayer();
-    //         UnAttack();
-    //     }
-    //     else
-    //     {
-    //         StopMovement();
-    //         UnAttack();
-    //     }
-    // }
-
     private void FixedUpdate()
     {
         if (player == null || PlayerHealth.Instance == null || PlayerHealth.Instance.currentHealth <= 0 || ReferenceEquals(player, null))
@@ -155,6 +127,7 @@ public class EnemyController : MonoBehaviour
         StopMovement();
         UnAttack();
         anim.SetTrigger("isDie");
+        SoundManager.PlaySound(SoundType.Die);
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;

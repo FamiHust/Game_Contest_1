@@ -12,8 +12,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float TimeBtwFire = 0.2f;
     [SerializeField] private float bulletForce;
     private float timeBtwFire;
-    private float originalSpeed;
-    private bool isShooting = false;
 
     private void Awake() 
     {
@@ -22,7 +20,6 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        originalSpeed = PlayerController.Instance.moveSpeed;
         weaponData.currentAmmo = weaponData.maxAmmo;
     }
 
@@ -38,17 +35,6 @@ public class Weapon : MonoBehaviour
                 FireBullet();
                 timeBtwFire = TimeBtwFire; 
             }
-
-            if (!isShooting) 
-            {
-                PlayerController.Instance.moveSpeed *= 0.8f;
-                isShooting = true;
-            }
-        }
-        else
-        {
-            PlayerController.Instance.moveSpeed = originalSpeed; 
-            isShooting = false; 
         }
     }
 

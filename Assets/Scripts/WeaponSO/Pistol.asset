@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   weaponName: Pistol
+  maxAmmo: 50
+  currentAmmo: 17
   weaponIcon: {fileID: 21300000, guid: cac8a91572db9764a87d83cca7b87118, type: 3}
-  maxAmmo: 30
-  currentAmmo: 20

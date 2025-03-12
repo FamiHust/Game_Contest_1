@@ -7,7 +7,7 @@ public enum SoundType
     WeaponPickUp,
     HealthPickUp,
     Gunshot,
-    Obstacle,
+    Die,
     GameOver
 }
 

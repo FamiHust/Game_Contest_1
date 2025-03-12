@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -7,15 +6,12 @@ public class EnemyHealth : MonoBehaviour
 
     private EnemyController enemyController;
     private Animator anim;
-    private Color originalColor;
     public GameObject Gun;
     public TankType tankType; 
-    private KnockBack knockBack;
 
     private void Awake() 
     {
         anim = GetComponent<Animator>();
-        knockBack = GetComponent<KnockBack>();
     }
 
     private void Start()
@@ -33,6 +29,8 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0) return;
 
         currentHealth -= damage;
+        anim.SetTrigger("isHurt");
+
         if (currentHealth <= 0)
         {
             Die();

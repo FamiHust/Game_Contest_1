@@ -15,7 +15,7 @@ MonoBehaviour:
   moveSpeed: 0.5
   rotationSpeed: 10
   fireRate: 0.9
-  detectionRange: 7
-  attackRange: 5
+  detectionRange: 8
+  attackRange: 6
   health: 100
   bulletPrefab: {fileID: 6952904440009306225, guid: edca6c939b316b94d991f749e37a793d, type: 3}

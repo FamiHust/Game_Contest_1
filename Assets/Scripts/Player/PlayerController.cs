@@ -44,29 +44,11 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
-
-        SpeedModify();
     }
 
     private void FixedUpdate()
     {
         rb.velocity = moveInput * moveSpeed;
-    }
-
-    private void SpeedModify()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            moveSpeed += 0.1f;
-            if(moveSpeed >= 6f)
-            {
-                moveSpeed = 6f;
-            }
-        }
-        else
-        {
-            moveSpeed = 3f;
-        }
     }
 
     private void FaceMovementDirection()

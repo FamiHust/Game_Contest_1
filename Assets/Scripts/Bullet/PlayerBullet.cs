@@ -14,13 +14,11 @@ public class PlayerBullet : MonoBehaviour
             {
                 enemyHealth.TakeDamage(damage);
             }
-            // Destroy(gameObject); 
             gameObject.SetActive(false);
         }
         else if (other.CompareTag("Obstacle"))
         {
-            SoundManager.PlaySound(SoundType.Obstacle);
-            // Destroy(gameObject);
+            // SoundManager.PlaySound(SoundType.Obstacle);
             gameObject.SetActive(false);
         }
     }

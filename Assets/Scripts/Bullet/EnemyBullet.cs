@@ -46,7 +46,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else if (other.CompareTag("Obstacle"))
         {
-            SoundManager.PlaySound(SoundType.Obstacle);
+            // SoundManager.PlaySound(SoundType.Obstacle);
             gameObject.SetActive(false);
         }
     }
