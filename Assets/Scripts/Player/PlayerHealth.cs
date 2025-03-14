@@ -64,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int amount)
     {
         currentHealth += amount;
+        
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -74,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
     public void AddArmor(int amount)
     {
         currentArmor += amount;
+
         if (currentArmor > maxArmor)
         {
             currentArmor = maxArmor;

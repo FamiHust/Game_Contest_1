@@ -1742,7 +1742,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 100
   smoothTime: 0.1
-  rb: {fileID: 0}
+  moveInput: {x: 0, y: 0}
 --- !u!61 &2995124382987507123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1989,7 +1989,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1112826457
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 44e6287f7979e83418c2c2ad7c1cbf61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2041,7 +2041,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1112826457
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 651dfc9bbf6fd2743b04ef1b09e67fbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2152,7 +2152,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1112826457
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 15d030f00c869924180a8132d472b792, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
