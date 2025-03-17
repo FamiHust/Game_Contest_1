@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5858294210379935381}
   - component: {fileID: 8093631595565178891}
   - component: {fileID: 1875298449806826687}
+  - component: {fileID: 8972380153684206649}
   m_Layer: 3
   m_Name: TDS04_0010_Bush-03
   m_TagString: Untagged
@@ -149,6 +150,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8972380153684206649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661549506997544258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e895c0efd6679bc4ca5eaaa2ab632c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeAmount: 0.4
 --- !u!1 &6002457855620401060
 GameObject:
   m_ObjectHideFlags: 0

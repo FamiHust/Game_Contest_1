@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524791a547ff36a4799fff5cc39f80cc, type: 3}
   m_Name: Gunner
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.5
   rotationSpeed: 10
   fireRate: 3
   detectionRange: 8

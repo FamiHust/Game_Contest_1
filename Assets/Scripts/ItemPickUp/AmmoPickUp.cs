@@ -12,14 +12,10 @@ public class AmmoPickUp : MonoBehaviour
             if (weaponManager != null)
             {
                 Weapon weaponScript = weaponManager.currentGun.GetComponent<Weapon>();
-
-                if (weaponScript.weaponData.currentAmmo < weaponScript.weaponData.maxAmmo)
-                    {
-                        weaponScript.weaponData.ReloadAmmo(ammoAmount);
-                        FindObjectOfType<WeaponUIManager>().UpdateAmmoUI(weaponScript.weaponData);
-                        SoundManager.PlaySound(SoundType.WeaponPickUp);
-                        Destroy(gameObject); 
-                    } 
+                weaponScript.weaponData.reserveAmmo += ammoAmount;
+                FindObjectOfType<WeaponUIManager>().UpdateAmmoUI(weaponScript.weaponData);
+                SoundManager.PlaySound(SoundType.WeaponPickUp);
+                Destroy(gameObject); 
             }
         }
     }

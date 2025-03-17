@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2560288311388976193}
   - component: {fileID: 7216929536361501860}
   - component: {fileID: -652485369908783926}
+  - component: {fileID: 4726398232284980357}
   m_Layer: 3
   m_Name: TDS04_0011_Bush-02
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1770878133
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 643a74ea0772d6248a3ba4ed3b6fd216, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -116,7 +117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.019708872, y: -0.029563427}
@@ -159,6 +160,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4726398232284980357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980844014267599484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e895c0efd6679bc4ca5eaaa2ab632c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeAmount: 0.4
 --- !u!1 &4252684720117479333
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +244,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1770878133
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2308a2208493a0040b45b4ff8103e410, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

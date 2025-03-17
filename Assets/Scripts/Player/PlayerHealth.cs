@@ -91,9 +91,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void CheckDeath()
     {
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
-            SoundManager.PlaySound(SoundType.GameOver);
             Die();
         }
     }
@@ -103,7 +102,7 @@ public class PlayerHealth : MonoBehaviour
         anim.SetTrigger("isDie");
         PlayerController.Instance.enabled = false;
         GameManager.instance.GameOver();
-        // SoundManager.PlaySound(SoundType.GameOver);
+        SoundManager.PlaySound(SoundType.GameOver);
     }
 
     public bool IsFullHealth()

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7161372341898708187}
   - component: {fileID: 1612398014518423501}
   - component: {fileID: -4076129968075137796}
+  - component: {fileID: 5249630925817915341}
   m_Layer: 3
   m_Name: TDS04_0022_Tree1
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1770878133
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5a715dbc9e16d0e45be90794015cdde2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -149,6 +150,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5249630925817915341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122107408494474786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e895c0efd6679bc4ca5eaaa2ab632c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeAmount: 0.4
 --- !u!1 &8829513044368257027
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +234,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1770878133
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 941c883688e99c74ab07dd8b8296bee0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

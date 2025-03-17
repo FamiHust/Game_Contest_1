@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
         weaponData.currentAmmo = weaponData.maxAmmo;
     }
 
-       void Update()
+    void Update()
     {
         RotateGun();
         timeBtwFire -= Time.deltaTime;
@@ -35,6 +35,22 @@ public class Weapon : MonoBehaviour
                 FireBullet();
                 timeBtwFire = TimeBtwFire; 
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SoundManager.PlaySound(SoundType.WeaponPickUp);
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
+
+    IEnumerator ReloadCoroutine()
+    {
+        while (weaponData.reserveAmmo > 0 && weaponData.currentAmmo < weaponData.maxAmmo)
+        {
+            weaponData.ReloadAmmo();
+            FindObjectOfType<WeaponUIManager>().UpdateAmmoUI(weaponData);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -52,7 +68,7 @@ public class Weapon : MonoBehaviour
     {
         anim.SetTrigger("isShooting");
         anim.transform.rotation = transform.rotation;
-        SoundManager.PlaySound(SoundType.FireBullet);
+        SoundManager.PlaySound(SoundType.PlayerBullet);
 
         foreach (Transform fire in firePos)
         {

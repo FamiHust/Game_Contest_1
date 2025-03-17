@@ -190,6 +190,7 @@ MonoBehaviour:
   moveSpeed: 2.5
   rotationSpeed: 100
   smoothTime: 0.1
+  joystick: {fileID: 0}
   moveInput: {x: 0, y: 0}
 --- !u!114 &5128898326168495861
 MonoBehaviour:

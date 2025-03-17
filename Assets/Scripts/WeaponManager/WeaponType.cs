@@ -7,11 +7,13 @@ public class WeaponType : ScriptableObject
     public string weaponName;
     public int maxAmmo;
     public int currentAmmo;
+    public int reserveAmmo;
     public Sprite weaponIcon;
 
-    private void Awake() 
-    {
-        currentAmmo = maxAmmo;    
+    private void OnEnable() 
+    {  
+        currentAmmo = maxAmmo;
+        reserveAmmo = 0;
     }
 
     public void DecreaseAmmo()
@@ -22,16 +24,14 @@ public class WeaponType : ScriptableObject
         }
     }
 
-    public void UpdateAmmoUI(TextMeshProUGUI ammoText)
+    public void ReloadAmmo()
     {
-        if (ammoText != null)
+        if (reserveAmmo > 0 && currentAmmo < maxAmmo)
         {
-            ammoText.text =  currentAmmo.ToString() + "/" + maxAmmo.ToString();
+            int ammoNeeded = maxAmmo - currentAmmo;
+            int ammoToReload = Mathf.Min(ammoNeeded, reserveAmmo);
+            currentAmmo += ammoToReload;
+            reserveAmmo -= ammoToReload;
         }
-    }
-
-    public void ReloadAmmo(int amount)
-    {
-        currentAmmo = Mathf.Min(currentAmmo + amount, maxAmmo); 
     }
 }

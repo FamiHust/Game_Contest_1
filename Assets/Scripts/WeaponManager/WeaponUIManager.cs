@@ -27,7 +27,6 @@ public class WeaponUIManager : MonoBehaviour
         {
             weaponUIImage.sprite = weapon.weaponIcon;
         }
-
         UpdateAmmoUI(weapon);
     }
 
@@ -35,7 +34,7 @@ public class WeaponUIManager : MonoBehaviour
     {
         if (yourAmmoText != null && weapon != null)
         {
-            yourAmmoText.text = weapon.currentAmmo.ToString() + "/" + weapon.maxAmmo.ToString();
+            yourAmmoText.text = weapon.currentAmmo.ToString() + "/" + weapon.maxAmmo.ToString() + " (+" + weapon.reserveAmmo.ToString() + ")";
         }
     }
 }
