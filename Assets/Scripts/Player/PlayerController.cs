@@ -5,20 +5,16 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
-    // [SerializeField] private int PlayerID;
     public float moveSpeed = 3f;
     [SerializeField] private float rotationSpeed = 10f;
-    [SerializeField] private float smoothTime = 0.1f; 
+    [SerializeField] private float smoothTime = 0.1f;
 
+    private ControlsManager controlsManager;
     private Animator anim;
     private Rigidbody2D rb;
-    public Joystick joystick;
     [HideInInspector] public Vector2 moveInput;
     private Vector2 velocity = Vector2.zero;
     
-
-    ControlsManager controlsManager;
-
 
     private void Awake()
     {
@@ -33,16 +29,12 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        // controlsManager = FindObjectOfType<ControlsManager>();
     }
 
     private void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
-        // float horizontal = joystick.Horizontal;
-        // float vertical = joystick.Vertical;
 
         moveInput = new Vector2(horizontal, vertical).normalized;
 
@@ -57,51 +49,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // private void Update()
-    // {
-    //     PlayerMovement();
-    // }
-
     private void FixedUpdate()
     {
         rb.velocity = moveInput * moveSpeed;
     }
-
-    // private void PlayerMovement()
-    // {
-    //     float horizontal = 0f;
-    //     float vertical = 0f;
-
-    //     if (Input.GetKey(controlsManager.GetKey(PlayerID, ControlKeys.LeftKey)))
-    //     {
-    //         horizontal = -1f;
-    //     }
-    //     else if (Input.GetKey(controlsManager.GetKey(PlayerID, ControlKeys.RightKey)))
-    //     {
-    //         horizontal = 1f;
-    //     }
-
-    //     if (Input.GetKey(controlsManager.GetKey(PlayerID, ControlKeys.UpKey)))
-    //     {
-    //         vertical = 1f;
-    //     }
-    //     else if (Input.GetKey(controlsManager.GetKey(PlayerID, ControlKeys.DownKey)))
-    //     {
-    //         vertical = -1f;
-    //     }
-
-    //     moveInput = new Vector2(horizontal, vertical).normalized;
-
-    //     if (moveInput != Vector2.zero)
-    //     {
-    //         anim.SetBool("isWalking", true);
-    //         FaceMovementDirection();
-    //     }
-    //     else
-    //     {
-    //         anim.SetBool("isWalking", false);
-    //     }
-    // }
 
     private void FaceMovementDirection()
     {
