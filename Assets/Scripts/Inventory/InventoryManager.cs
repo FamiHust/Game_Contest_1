@@ -127,6 +127,7 @@ public class InventoryManager : MonoBehaviour
             int index = blindBoxes.Count - 1; // Lấy chỉ số hộp mới nhặt
             if (index < uiSlots.Count)
             {
+                SoundManager.PlaySound(SoundType.HealthPickUp);
                 uiSlots[index].SetActive(true); // Bật UI của slot trống
             }
 
@@ -148,6 +149,7 @@ public class InventoryManager : MonoBehaviour
         // Kiểm tra còn hộp chưa mở không
         if (blindBoxes.Count > 0)
         {
+            SoundManager.PlaySound(SoundType.HealthPickUp);
             // Lấy hộp tiếp theo trong danh sách
             BlindBox boxToOpen = blindBoxes[currentBoxIndex];
 
