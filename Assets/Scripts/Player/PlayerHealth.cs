@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = 50;
         currentArmor = maxArmor;
         UpdateUI();
     }

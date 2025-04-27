@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float smoothTime = 0.1f;
 
-    private ControlsManager controlsManager;
     private Animator anim;
     private Rigidbody2D rb;
     [HideInInspector] public Vector2 moveInput;

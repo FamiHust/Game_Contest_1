@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             SoundManager.PlaySound(SoundType.WeaponPickUp);
             StartCoroutine(ReloadCoroutine());
