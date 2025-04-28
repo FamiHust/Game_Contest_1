@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject OverPanel;
     public GameObject WinPanel;
+    public GameObject PausePanel;
 
     private void Awake()
     {
@@ -17,6 +18,21 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (PausePanel.activeSelf)
+            {
+                Continue();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 
@@ -57,6 +73,19 @@ public class GameManager : MonoBehaviour
     public void LoadingScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1;
+    }
+
+    public void Pause()
+    {
+        PausePanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Continue()
+    {
+        PausePanel.SetActive(false);
+        Time.timeScale = 1;
     }
     
     public void QuitGame()
