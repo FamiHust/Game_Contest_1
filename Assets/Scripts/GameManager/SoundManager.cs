@@ -9,7 +9,8 @@ public enum SoundType
     Gunshot,
     Die,
     GameOver,
-    PlayerBullet
+    PlayerBullet,
+    Victory
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -18,7 +19,7 @@ public class SoundManager : MonoBehaviour
     private static SoundManager instance;
 
     [SerializeField] private AudioClip[] soundList;
-    // [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Slider volumeSlider;
     private AudioSource audioSource;
 
     private void Awake()

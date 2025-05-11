@@ -31,23 +31,20 @@ public class WeaponManager : MonoBehaviour
         UpdateWeaponUI(); // Hiển thị UI ban đầu
     }
 
-    void Update()
-    {
-        SwitchGuns();
-    }
+    // void Update()
+    // {
+    //     SwitchGuns();
+    // }
 
-    private void SwitchGuns()
+    public void SwitchGuns()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SoundManager.PlaySound(SoundType.WeaponPickUp);
-            guns[currentWeaponIndex].SetActive(false);
-            currentWeaponIndex = (currentWeaponIndex + 1) % totalWeapons;
-            guns[currentWeaponIndex].SetActive(true);
-            currentGun = guns[currentWeaponIndex];
+        SoundManager.PlaySound(SoundType.WeaponPickUp);
+        guns[currentWeaponIndex].SetActive(false);
+        currentWeaponIndex = (currentWeaponIndex + 1) % totalWeapons;
+        guns[currentWeaponIndex].SetActive(true);
+        currentGun = guns[currentWeaponIndex];
 
-            UpdateWeaponUI();
-        }
+        UpdateWeaponUI();
     }
 
     private void UpdateWeaponUI()

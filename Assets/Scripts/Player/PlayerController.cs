@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
-    [HideInInspector] public Vector2 moveInput;
     private Vector2 velocity = Vector2.zero;
-    
+    [HideInInspector] public Vector2 moveInput;
+    public Joystick joystick;   
 
     private void Awake()
     {
@@ -32,8 +32,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        // float horizontal = Input.GetAxis("Horizontal");
+        // float vertical = Input.GetAxis("Vertical");
+        float horizontal = joystick.Horizontal;
+        float vertical = joystick.Vertical;
 
         moveInput = new Vector2(horizontal, vertical).normalized;
 

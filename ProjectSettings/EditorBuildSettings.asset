@@ -19,11 +19,11 @@ EditorBuildSettings:
     guid: d1037586c3c025c47900c0f291a64d44
   - enabled: 1
     path: Assets/Scenes/Level_2.unity
-    guid: 1bc39facb5b0dde4386425b76d287626
+    guid: f250ad612059095419be3b3e1402f0a4
   - enabled: 1
     path: Assets/Scenes/Level_3.unity
     guid: f31ee6a60b16b4174a95cfc012465dea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HidingBoat.unity
     guid: 42d03c23b826e874b8a91f5f30e14699
   m_configObjects: {}

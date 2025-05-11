@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,21 +22,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (PausePanel.activeSelf)
-            {
-                Continue();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }
-
     public void GameOver()
     {
         StartCoroutine(GameOverCoroutine());
@@ -45,6 +31,9 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         OverPanel.SetActive(true);
+        SoundManager.PlaySound(SoundType.GameOver);
+
+        MoneyManager.Instance.SpendMoney(100);
 
         if (PlayerHealth.Instance != null)
         {
@@ -63,6 +52,9 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         WinPanel.SetActive(true);
+        SoundManager.PlaySound(SoundType.Victory);
+
+        MoneyManager.Instance.AddMoney(100);
 
         if (PlayerHealth.Instance != null)
         {

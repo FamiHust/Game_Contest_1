@@ -413,6 +413,11 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 41c59780ef2cfe04b94d3fd9fbd2f403, type: 2}
   TimeBtwFire: 0.2
   bulletForce: 10
+  aimJoystick: {fileID: 0}
+  autoAimRadius: 6
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!95 &4630374776474202784
 Animator:
   serializedVersion: 5

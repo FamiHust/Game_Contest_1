@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7488714402502222091}
   - component: {fileID: 7200236951158563381}
   - component: {fileID: 3058528240689997198}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Boat_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -253,7 +253,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gun: {fileID: 582633648761033769}
   tankType: {fileID: 11400000, guid: 7e12439e9b22a244a82e5266b63591d6, type: 2}
-  knockbackForce: 5
 --- !u!70 &3058528240689997198
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

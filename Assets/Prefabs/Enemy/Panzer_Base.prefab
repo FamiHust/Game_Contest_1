@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: -7904496574349290510}
   - component: {fileID: 7488714402502222091}
   - component: {fileID: 7200236951158563381}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Panzer_Base
   m_TagString: Enemy
   m_Icon: {fileID: 0}
