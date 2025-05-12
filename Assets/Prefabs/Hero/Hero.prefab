@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0d27dcb5f5653498b6ebb5e9c79d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
-  rotationSpeed: 100
+  moveSpeed: 2
+  rotationSpeed: 50
   smoothTime: 0.1
   moveInput: {x: 0, y: 0}
   joystick: {fileID: 0}

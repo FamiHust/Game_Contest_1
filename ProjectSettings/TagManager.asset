@@ -12,6 +12,7 @@ TagManager:
   - LoadScene
   - Minimap
   - Joystick
+  - GameMusic
   layers:
   - Default
   - TransparentFX

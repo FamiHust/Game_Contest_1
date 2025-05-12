@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject OverPanel;
     public GameObject WinPanel;
     public GameObject PausePanel;
-
+    
     private void Awake()
     {
         if (instance == null)
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         PausePanel.SetActive(false);
         Time.timeScale = 1;
     }
-    
+
     public void QuitGame()
     {
         Application.Quit();
