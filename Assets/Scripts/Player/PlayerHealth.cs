@@ -83,6 +83,17 @@ public class PlayerHealth : MonoBehaviour
         UpdateUI();
     }
 
+    public void ReduceArmor(int amount)
+    {
+        currentArmor -= amount;
+
+        if (currentArmor < 0)
+        {
+            currentArmor = 0;
+        }
+        UpdateUI();
+    }
+
     private void UpdateUI()
     {
         healthText.text = currentHealth.ToString() + "%";
